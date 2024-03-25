@@ -3,6 +3,9 @@
   ## Description
   This is a application that allows the user to keep tract of employees via roles, salary and departments. This user uses this app inthe terminal to add, modify or delete data. 
 
+  https://github.com/Blair-D/Employee-Tracker
+  
+
   ## Table of Contents
   - [Installation](#Installation)
   - [Usage](#Usage)
