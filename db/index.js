@@ -1,3 +1,4 @@
+//This requires the dbConc file
 const dbConn = require("./dbConc");
 
 class empManager {

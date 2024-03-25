@@ -2,7 +2,7 @@
 const db = require("./db");
 const inquirer = require("inquirer");
 
-
+//this allsows the user to make a selection in the command line for the action they would like to do
 const init = () => {
   inquirer
     .prompt([
@@ -64,6 +64,7 @@ const init = () => {
     });
 };
 
+//this allows the user to retrieve departments that are already stored in the database
 async function getDepartments() {
   try {
     const [rows] = await db.getDepartments();
@@ -74,6 +75,7 @@ async function getDepartments() {
     console.error("Error retrieving Departments: " + error.message);
   }
 }
+
 
 async function viewPosition() {
   try {
@@ -86,17 +88,7 @@ async function viewPosition() {
   }
 }
 
-async function getEmployees() {
-  try {
-    const [rows] = await db.getEmployees();
-    let employee = rows;
-    console.table(employee);
-    init();
-  } catch (error) {
-    console.error("Error retrieving Employees: " + error.message);
-  }
-}
-
+//This allows the user to create (add) a department to the data base
 async function addDepartment() {
   const response = await inquirer.prompt([
     {
@@ -115,7 +107,19 @@ async function addDepartment() {
   }
 }
 
+//This allows the user to retrieve employees that are already saved in the database
+async function getEmployees() {
+  try {
+    const [rows] = await db.getEmployees();
+    let employee = rows;
+    console.table(employee);
+    init();
+  } catch (error) {
+    console.error("Error retrieving Employees: " + error.message);
+  }
+}
 
+//this allows the user to create (add) a new position to the data base
 function addPosition() {
   db.getDepartments().then(([rows]) => {
     const departmentChoices = rows.map(({ id, name }) => ({
@@ -157,6 +161,7 @@ function addPosition() {
   });
 }
 
+//this allows the user to exit the application
 function quit() {
   console.log("Leaving the application, goodbye.");
   process.exit();
