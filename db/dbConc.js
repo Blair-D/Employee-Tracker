@@ -1,6 +1,6 @@
-//Requires you to install mysql
-const mysql = require("mysql");
-const inquirer = require("inquirer");
+//Requires you to install mysql and inquirer
+const mysql = require("mysql2");
+const inquirer = require('inquirer');
 //defines the database connection variable with login info
 const dbConn = mysql.createConnection({
   host: "localhost",
